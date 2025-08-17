@@ -41,16 +41,11 @@ header.site-header{
   text-decoration: none;
   color: var(--fg);
 }
-.brand-logo{
-  width: 36px; height: 36px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  display: grid; place-items: center;
-  box-shadow: 0 6px 18px rgba(95,179,255,0.35);
-}
-.brand-logo:before{
-  content: "✦"; font-size: 18px; color: #0b1220; font-weight: 900;
-  transform: translateY(-1px);
+.brand-logo-img{
+  width: 42px;
+  height: auto;
+  border-radius: 8px; /* opcional, se quiser arredondar a logo */
+  box-shadow: 0 4px 12px rgba(95,179,255,0.25);
 }
 .brand-title{
   font-weight: 600; letter-spacing: .4px; font-size: 1.05rem;
