@@ -1,104 +1,43 @@
-:root{
-  --bg: #0b1220;
-  --fg: #e6eefc;
-  --accent: #5fb3ff;
-  --accent-2: #9ce6ff;
-  --muted: #a7b1c6;
-  --card: #111a2e;
-}
-* { box-sizing: border-box; }
-html, body { height: 100%; }
-body{
+/* Fundo geral */
+body {
   margin: 0;
-  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: var(--fg);
-  background: radial-gradient(1200px 600px at 20% -10%, rgba(95,179,255,.25), transparent 60%),
-              radial-gradient(1000px 500px at 80% 0%, rgba(156,230,255,.25), transparent 60%),
-              var(--bg);
+  font-family: Arial, sans-serif;
+  background-color: #234717; /* verde musgo */
+  color: #fff;
 }
 
-/* ===== Header / Navbar ===== */
-header.site-header{
-  position: sticky;
-  top: 0; z-index: 1000;
-  backdrop-filter: saturate(1.2) blur(10px);
-  background: rgba(11,18,32,0.6);
-  border-bottom: 1px solid rgba(159,187,217,0.12);
-}
-.nav-wrap{
-  max-width: 1100px;
-  margin: 0 auto;
+/* Cabeçalho */
+.site-header {
+  background-color: #541313; /* vinho escuro */
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 14px 20px;
-  gap: 12px;
-}
-.brand{
-  display: inline-flex;
   align-items: center;
-  gap: 10px;
+  padding: 15px 40px;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ad850c; /* dourado */
+}
+
+/* Navegação */
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
   text-decoration: none;
-  color: var(--fg);
-}
-.brand-logo-img{
-  width: 42px;
-  height: auto;
-  border-radius: 8px; /* opcional, se quiser arredondar a logo */
-  box-shadow: 0 4px 12px rgba(95,179,255,0.25);
-}
-.brand-title{
-  font-weight: 600; letter-spacing: .4px; font-size: 1.05rem;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
-nav.nav{
-  display: flex; align-items: center; gap: 10px;
-}
-.btn{
-  --pad-x: 16px; --pad-y: 10px;
-  appearance: none; border: 0; outline: 0; cursor: pointer;
-  padding: var(--pad-y) var(--pad-x);
-  border-radius: 999px;
-  background: transparent;
-  color: var(--fg);
-  font-weight: 600; font-size: .95rem;
-  letter-spacing: .2px;
-  text-decoration: none;
-  position: relative; overflow: hidden;
-  transition: transform .18s ease, background .18s ease, color .18s ease;
-}
-.btn:hover{ transform: translateY(-1px); }
-
-.btn-outline{
-  border: 1px solid rgba(156,230,255,.3);
-  background: rgba(255,255,255,0.02);
-}
-.btn-outline:hover{
-  background: rgba(156,230,255,.08);
-  box-shadow: 0 6px 18px rgba(156,230,255,0.15) inset, 0 6px 18px rgba(95,179,255,0.2);
-}
-
-.btn-primary{
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #0b1220;
-  border: 1px solid rgba(156,230,255,.6);
-  box-shadow: 0 6px 18px rgba(95,179,255,0.35);
-}
-.btn-primary:hover{ filter: brightness(1.05); }
-
-.btn:focus-visible{
-  outline: 3px solid rgba(156,230,255,.65);
-  outline-offset: 2px;
-}
-
-.hero{
-  max-width: 1100px; margin: 32px auto; padding: 40px 20px;
-}
-.hero h1{ font-size: clamp(2rem, 3.6vw, 3rem); margin: 0 0 10px; }
-.hero p{ color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.1rem); margin: 0; }
-
-@media (max-width: 720px){
-  .nav-wrap{ padding: 12px 14px; }
-  .brand-title{ font-size: 1rem; }
-  .btn{ --pad-x: 14px; --pad-y: 9px; font-size: .95rem; }
+.navbar a:hover {
+  color: #ad850c; /* dourado no hover */
 }
