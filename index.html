@@ -1,11 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Sky Run</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Sky Run — Viagens</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b1220;          /* fundo escuro tipo céu noturno */
+      --fg: #e6eefc;          /* texto claro */
+      --accent: #5fb3ff;      /* azul aurora */
+      --accent-2: #9ce6ff;    /* azul claro para highlights */
+      --muted: #a7b1c6;       /* texto secundário */
+      --card: #111a2e;        /* blocos */
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin: 0;
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--fg);
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(95,179,255,.25), transparent 60%),
+                  radial-gradient(1000px 500px at 80% 0%, rgba(156,230,255,.25), transparent 60%),
+                  var(--bg);
+    }
+
+    /* ===== Header / Navbar ===== */
+    header.site-header{
+      position: sticky;
+      top: 0; z-index: 1000;
+      backdrop-filter: saturate(1.2) blur(10px);
+      background: rgba(11,18,32,0.6);
+      border-bottom: 1px solid rgba(159,187,217,0.12);
+    }
+    .nav-wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      gap: 12px;
+    }
+    .brand{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--fg);
+    }
+    .brand-logo{
+      width: 36px; height: 36px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid; place-items: center;
+      box-shadow: 0 6px 18px rgba(95,179,255,0.35);
+    }
+    .brand-logo:before{
+      content: "✦"; font-size: 18px; color: #0b1220; font-weight: 900;
+      transform: translateY(-1px);
+    }
+    .brand-title{
+      font-weight: 600; letter-spacing: .4px; font-size: 1.05rem;
+    }
+
+    nav.nav{
+      display: flex; align-items: center; gap: 10px;
+    }
+    .btn{
+      --pad-x: 16px; --pad-y: 10px;
+      appearance: none; border: 0; outline: 0; cursor: pointer;
+      padding: var(--pad-y) var(--pad-x);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--fg);
+      font-weight: 600; font-size: .95rem;
+      letter-spacing: .2px;
+      text-decoration: none; /* for <a> */
+      position: relative; overflow: hidden;
+      transition: transform .18s ease, background .18s ease, color .18s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+
+    /* Outline style default */
+    .btn-outline{
+      border: 1px solid rgba(156,230,255,.3);
+      background: rgba(255,255,255,0.02);
+    }
+    .btn-outline:hover{
+      background: rgba(156,230,255,.08);
+      box-shadow: 0 6px 18px rgba(156,230,255,0.15) inset, 0 6px 18px rgba(95,179,255,0.2);
+    }
+
+    /* Primary style for the most important CTA if needed later */
+    .btn-primary{
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #0b1220;
+      border: 1px solid rgba(156,230,255,.6);
+      box-shadow: 0 6px 18px rgba(95,179,255,0.35);
+    }
+    .btn-primary:hover{ filter: brightness(1.05); }
+
+    /* Acessibilidade: foco visível */
+    .btn:focus-visible{
+      outline: 3px solid rgba(156,230,255,.65);
+      outline-offset: 2px;
+    }
+
+    /* ===== Demo hero (apenas para preencher a tela enquanto só temos o cabeçalho) ===== */
+    .hero{
+      max-width: 1100px; margin: 32px auto; padding: 40px 20px;
+    }
+    .hero h1{ font-size: clamp(2rem, 3.6vw, 3rem); margin: 0 0 10px; }
+    .hero p{ color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.1rem); margin: 0; }
+
+    /* Responsivo */
+    @media (max-width: 720px){
+      .nav-wrap{ padding: 12px 14px; }
+      .brand-title{ font-size: 1rem; }
+      .btn{ --pad-x: 14px; --pad-y: 9px; font-size: .95rem; }
+    }
+  </style>
 </head>
 <body>
-    
+  <!-- Cabeçalho / Navbar -->
+  <header class="site-header" role="banner">
+    <div class="nav-wrap">
+      <a class="brand" href="#top" aria-label="The Sky Run - Início">
+        <span class="brand-logo" aria-hidden="true"></span>
+        <span class="brand-title">The Sky Run</span>
+      </a>
+      <nav class="nav" aria-label="Navegação principal">
+        <a class="btn btn-outline" href="#sobre-nos">Sobre nós</a>
+        <a class="btn btn-outline" href="#destinos">Destinos</a>
+        <a class="btn btn-outline" href="#fotos">Fotos</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo de demonstração temporário -->
+  <main class="hero">
+    <h1>Pronto para correr sob o céu?</h1>
+    <p>Este é o cabeçalho do seu novo site inspirado em viagens nórdicas. Quando quiser, avançamos para as seções "Sobre nós", "Destinos" e "Fotos".</p>
+  </main>
 </body>
 </html>
