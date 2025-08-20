@@ -14,8 +14,8 @@ body {
 
 /* Cabeçalho */
 .site-header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto; /* Logo à esquerda, menu à direita */
   align-items: center;
   padding: 15px 30px;
   background-color: #541313;
@@ -29,7 +29,8 @@ body {
 
 .navbar ul {
   list-style: none;
-  display: flex;
+  display: grid;
+  grid-auto-flow: column; /* distribui os itens em linha */
   gap: 20px;
 }
 
@@ -45,11 +46,11 @@ body {
 
 /* Galeria de imagens */
 .gallery {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas */
   gap: 20px;
   padding: 50px 20px;
-  flex-wrap: wrap;
+  justify-items: center; /* centraliza as imagens nas células */
 }
 
 .gallery img {
@@ -63,4 +64,27 @@ body {
 
 .gallery img:hover {
   transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .site-header {
+    grid-template-columns: 1fr; /* logo e menu empilhados */
+    text-align: center;
+    gap: 10px;
+  }
+
+  .navbar ul {
+    grid-auto-flow: row; /* menu em coluna */
+    justify-items: center;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr; /* imagens empilhadas */
+  }
+
+  .gallery img {
+    width: 100%;
+    height: auto;
+  }
 }
