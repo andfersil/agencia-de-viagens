@@ -69,6 +69,15 @@ body {
   transform: scale(1.05);
 }
 
+/*Espaço dos textos*/
+.text{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+  gap: 20px;
+  padding: 50px 20px;
+  justify-items: center;
+}
+
 /* Rodapé */
 .site-footer {
   background-color: #541313;
